@@ -122,7 +122,27 @@ print(y)
 print("\n\n---Ultimate Analysis---")
 
 def ultimate_analysis(a_list):
+    new_dict ={}
+    sum = 0
+    min = a_list[0]
+    max = a_list[0]
+    list_len = len(a_list)
 
+    for i in range(len(a_list)):
+        sum += a_list[i]
+        if(a_list[i] < min):
+            min = a_list[i]
+        elif(a_list[i] > max):
+            max = a_list[i]
+        
+    avg = sum / list_len
+    new_dict['sumTotal'] = sum
+    new_dict['average'] = avg
+    new_dict['minimum'] = min
+    new_dict['maximum'] = max
+    new_dict['length'] = list_len
+
+    return new_dict
     
     
 x = [37,2,1,-9]
@@ -130,3 +150,17 @@ y = ultimate_analysis(x)
 print(y)
 
 #Reverse List - Create a function that takes a list and return that list with values reversed. Do this without creating a second list. (This challenge is known to appear during basic technical interviews.)  Example: reverse_list([37,2,1,-9]) should return [-9,1,2,37]
+print("\n\n---Reverse List---")
+
+def reverse_list(a_list):
+    
+    for i in range(int(len(a_list)/2)):
+        temp = a_list[i]
+        a_list[i] = a_list[len(a_list)-1-i]
+        a_list[len(a_list)-1-i] = temp
+
+    return a_list
+
+x = [37,2,1,-9]
+y = reverse_list(x)
+print(y)
